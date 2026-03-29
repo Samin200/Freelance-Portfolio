@@ -17,15 +17,25 @@ const fadeUp = {
 };
 
 export function Hero() {
-  const [settings, setSettings] = useState({ available: true, profilePhoto: "https://i.ibb.co.com/hFyt4Myd/flux-2-max-20251222-a-Enhance-this-portrai.jpg" });
+  const [settings, setSettings] = useState({
+    available: true,
+    profilePhoto:
+      "https://i.ibb.co.com/hFyt4Myd/flux-2-max-20251222-a-Enhance-this-portrai.jpg",
+  });
 
- useEffect(() => {
-  fetch(`${import.meta.env.VITE_API_BASE}/api/settings`)
-    .then(res => res.json())
-    .then(data => setSettings(data))
-    .catch(() => setSettings({ available: true, profilePhoto: "https://i.ibb.co.com/hFyt4Myd/flux-2-max-20251222-a-Enhance-this-portrai.jpg" }));
-}, []);
-
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_BASE}/api/settings`)
+      .then((res) => res.json())
+      .then((data) => setSettings(data))
+      .catch(() =>
+        setSettings({
+          available: true,
+          profilePhoto:
+            "https://i.ibb.co.com/hFyt4Myd/flux-2-max-20251222-a-Enhance-this-portrai.jpg",
+        }),
+      );
+  }, []);
+  // dsd
   return (
     <section
       id="home"
