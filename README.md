@@ -2,7 +2,7 @@
 
 # Samin Safwan — Portfolio
 
-**Aspiring web developer. Building real things. Based in Chittagong, Bangladesh.**
+**Aspiring web developer. Building real things.**
 
 
 </div>
@@ -21,7 +21,7 @@ I'm 19, on a gap year after A-Levels, and focused on frontend development and fr
 
 | Layer | Technology |
 |---|---|
-| Framework | React 18 |
+| Framework | React 19 |
 | Styling | Tailwind CSS |
 | Animations | Framer Motion |
 | Deployment | Vercel |
@@ -85,9 +85,9 @@ npm run build
 
 Open to freelance projects and collaborations.
 
-- **Email:** saminsafwan@example.com
-- **GitHub:** [@your-username](https://github.com/your-username)
-- **Portfolio:** [your-portfolio-url.vercel.app](https://your-portfolio-url.vercel.app)
+- **Email:** saminsafwan2@gmail.com
+- **GitHub:** [@Samin200](https://github.com/Samin200)
+- **Portfolio:** [your-portfolio-url.vercel.app](https://first-portfolio-theta-fawn.vercel.app/)
 
 ---
 
