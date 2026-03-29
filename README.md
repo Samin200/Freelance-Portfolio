@@ -87,7 +87,7 @@ Open to freelance projects and collaborations.
 
 - **Email:** saminsafwan2@gmail.com
 - **GitHub:** [@Samin200](https://github.com/Samin200)
-- **Portfolio:** [your-portfolio-url.vercel.app](https://first-portfolio-theta-fawn.vercel.app/)
+- **Portfolio:** [your-portfolio-url.vercel.app](https://samins-portfolio.vercel.app/)
 
 ---
 
