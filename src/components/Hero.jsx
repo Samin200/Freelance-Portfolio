@@ -50,7 +50,6 @@ export function Hero() {
 
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-center md:justify-between">
-
           {/* ── Left: text content ── */}
           <motion.div
             variants={container}
@@ -61,19 +60,24 @@ export function Hero() {
             {/* Availability badge */}
             {settings.available && (
               <motion.div variants={fadeUp}>
-                <span className="
+                <span
+                  className="
                   inline-flex items-center gap-2.5 rounded-full
                   border border-emerald-200/80 bg-emerald-50
                   px-4 py-1.5 text-xs font-semibold text-emerald-700
                   shadow-sm shadow-emerald-100
                   dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:text-emerald-400 dark:shadow-none
-                ">
+                "
+                >
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
                   </span>
                   Available for new projects
-                  <Sparkles size={10} className="text-emerald-500 dark:text-emerald-400" />
+                  <Sparkles
+                    size={10}
+                    className="text-emerald-500 dark:text-emerald-400"
+                  />
                 </span>
               </motion.div>
             )}
@@ -97,7 +101,9 @@ export function Hero() {
               "
             >
               Hi, I'm Samin —{" "}
-              <span className="italic text-zinc-400 dark:text-zinc-500">I build</span>{" "}
+              <span className="italic text-zinc-400 dark:text-zinc-500">
+                I build
+              </span>{" "}
               clean, modern{" "}
               <span className="bg-gradient-to-r from-zinc-900 to-zinc-600 bg-clip-text text-transparent dark:from-zinc-100 dark:to-zinc-400">
                 websites.
@@ -109,13 +115,17 @@ export function Hero() {
               variants={fadeUp}
               className="max-w-[50ch] text-base leading-relaxed text-zinc-500 dark:text-zinc-400"
             >
-              I completed a 6-month web development course at Programming Hero, where I
-              learned modern frontend development with React. I build my projects using
-              React, Tailwind CSS, and an AI-assisted workflow — and I'm always improving.
+              I completed a 6-month web development course at Programming Hero,
+              where I learned modern frontend development with React. I build my
+              projects using React, Tailwind CSS, and an AI-assisted workflow —
+              and I'm always improving.
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-1">
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-wrap items-center gap-3 pt-1"
+            >
               <a
                 href="#contact"
                 className="
@@ -135,7 +145,10 @@ export function Hero() {
                   aria-hidden
                 />
                 Hire Me
-                <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight
+                  size={14}
+                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
 
               <a
@@ -168,30 +181,32 @@ export function Hero() {
               {/* Profile photo */}
               <div className="relative h-52 w-52 overflow-hidden rounded-full border-2 border-zinc-100 shadow-2xl shadow-zinc-200/60 dark:border-zinc-800 dark:shadow-zinc-900/60 md:h-64 md:w-64">
                 <img
-                  src={settings.profilePhoto || "flux-2-max-20251222_a_Enhance_this_portrai.jpeg"}
+                  src={
+                    settings.profilePhoto ||
+                    "https://i.ibb.co.com/hFyt4Myd/flux-2-max-20251222-a-Enhance-this-portrai.jpg"
+                  }
                   alt="Samin Safwan — Frontend Developer"
                   className="h-full w-full object-cover object-top"
                 />
               </div>
               {/* Small floating badge */}
-             <div className="absolute -bottom-2 -right-2 flex items-center gap-1.5 rounded-full border border-zinc-100 bg-white px-3 py-1.5 shadow-md dark:border-zinc-700 dark:bg-zinc-900">
-  {settings.available ? (
-    <>
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-      <span className="text-[0.65rem] font-semibold text-zinc-600 dark:text-zinc-300">
-        Open to work
-      </span>
-    </>
-  ) : (
-  <>
-    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-    <span className="text-[0.65rem] font-semibold text-zinc-600 dark:text-zinc-300">
-      Not available
-    </span>
-  </>
-    
-  )}
-</div>
+              <div className="absolute -bottom-2 -right-2 flex items-center gap-1.5 rounded-full border border-zinc-100 bg-white px-3 py-1.5 shadow-md dark:border-zinc-700 dark:bg-zinc-900">
+                {settings.available ? (
+                  <>
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    <span className="text-[0.65rem] font-semibold text-zinc-600 dark:text-zinc-300">
+                      Open to work
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                    <span className="text-[0.65rem] font-semibold text-zinc-600 dark:text-zinc-300">
+                      Not available
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
           </motion.div>
         </div>
