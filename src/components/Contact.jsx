@@ -83,9 +83,6 @@ function AvailabilityToggle() {
         <span className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">
           Availability Status
         </span>
-        <span className="mt-0.5 text-[0.68rem] text-zinc-400 dark:text-zinc-500">
-          Shown on your portfolio badge
-        </span>
       </div>
       <span
         className={`
