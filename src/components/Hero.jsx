@@ -22,6 +22,10 @@ export function Hero() {
     profilePhoto:
       "https://i.ibb.co.com/hFyt4Myd/flux-2-max-20251222-a-Enhance-this-portrai.jpg",
   });
+  const [content, setContent] = useState({
+    eyebrow: "Freelance Web Developer",
+    heroBio: "I completed a 6-month web development course at Programming Hero, where I learned modern frontend development with React. I build my projects using React, Tailwind CSS, and an AI-assisted workflow — and I\'m always improving.",
+  });
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_BASE}/api/settings`)
@@ -34,8 +38,18 @@ export function Hero() {
             "https://i.ibb.co.com/hFyt4Myd/flux-2-max-20251222-a-Enhance-this-portrai.jpg",
         }),
       );
+    fetch(`${import.meta.env.VITE_API_BASE}/api/content`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && typeof data === "object") {
+          setContent((prev) => ({ ...prev, ...data }));
+          if (data.profilePhoto) {
+            setSettings((prev) => ({ ...prev, profilePhoto: data.profilePhoto }));
+          }
+        }
+      })
+      .catch(() => {});
   }, []);
-  // dsd
   return (
     <section
       id="home"
@@ -97,7 +111,7 @@ export function Hero() {
               variants={fadeUp}
               className="text-[0.7rem] font-bold tracking-[0.28em] text-zinc-400 uppercase dark:text-zinc-500"
             >
-              Freelance Web Developer
+              {content.eyebrow}
             </motion.p>
 
             {/* Headline */}
@@ -110,14 +124,7 @@ export function Hero() {
                 text-zinc-950 dark:text-zinc-50
               "
             >
-              Hi, I'm Samin —{" "}
-              <span className="italic text-zinc-400 dark:text-zinc-500">
-                I build
-              </span>{" "}
-              clean, modern{" "}
-              <span className="bg-gradient-to-r from-zinc-900 to-zinc-600 bg-clip-text text-transparent dark:from-zinc-100 dark:to-zinc-400">
-                websites.
-              </span>
+              {content.headline || "Hi, I'm Samin — I build clean, modern websites."}
             </motion.h1>
 
             {/* Bio */}
@@ -125,10 +132,7 @@ export function Hero() {
               variants={fadeUp}
               className="max-w-[50ch] text-base leading-relaxed text-zinc-500 dark:text-zinc-400"
             >
-              I completed a 6-month web development course at Programming Hero,
-              where I learned modern frontend development with React. I build my
-              projects using React, Tailwind CSS, and an AI-assisted workflow —
-              and I'm always improving.
+              {content.heroBio}
             </motion.p>
 
             {/* CTAs */}

@@ -1,6 +1,8 @@
 /**
  * About — biography, course background, and process steps.
+ * Text content is loaded from the API and falls back to static defaults.
  */
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Code2, Wind, Clock, Bot } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
@@ -22,7 +24,26 @@ const cardVariants = {
   }),
 };
 
+const DEFAULTS = {
+  aboutTitle: "Learning by building real things",
+  aboutDescription: "I completed a 6-month structured web development course at Programming Hero, where I went from the basics to building full React applications. Now I take on freelance projects to keep growing.",
+  aboutBio: "I build with React and Tailwind CSS, and I use AI tools as part of my development workflow — for writing, debugging, and learning faster. I'm honest about where I am in my journey and focused on delivering clean, working websites for every client.",
+};
+
 export function About() {
+  const [content, setContent] = useState(DEFAULTS);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_BASE}/api/content`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && typeof data === "object") {
+          setContent((prev) => ({ ...prev, ...data }));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="about" className="px-6 py-28 lg:px-8">
       <div className="mx-auto mb-20 w-full max-w-6xl">
@@ -35,8 +56,8 @@ export function About() {
         <div className="flex flex-col gap-8">
           <SectionHeading
             label="About"
-            title="Learning by building real things"
-            description="I completed a 6-month structured web development course at Programming Hero, where I went from the basics to building full React applications. Now I take on freelance projects to keep growing."
+            title={content.aboutTitle}
+            description={content.aboutDescription}
           />
 
           <motion.p
@@ -46,10 +67,7 @@ export function About() {
             transition={{ duration: 0.5, delay: 0.25 }}
             className="max-w-md text-base leading-relaxed text-zinc-500 dark:text-zinc-400"
           >
-            I build with React and Tailwind CSS, and I use AI tools as part of my
-            development workflow — for writing, debugging, and learning faster.
-            I'm honest about where I am in my journey and focused on delivering
-            clean, working websites for every client.
+            {content.aboutBio}
           </motion.p>
 
           {/* Process timeline */}
